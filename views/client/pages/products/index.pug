@@ -1,6 +1,13 @@
 extend ../../layouts/default.pug
 block main
-  each item in list
-    img(src=item.thumbnail, alt="", sizes="", srcset="")        
-    p #{item.title}
-    p #{item.price}
+  .container.text-center
+  .row.align-items-center
+    each item in list 
+      .card(style='width: 16rem;')
+        img.card-img-top(src=item.thumbnail alt='...')
+        .card-body
+          h5.card-title #{item.title}
+          p.card-text
+            #{item.price}
+          a.btn.btn-primary(href='#') Add to cart
+

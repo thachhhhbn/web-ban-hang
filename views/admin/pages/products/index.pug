@@ -1,0 +1,38 @@
+extend ../../layouts/default.pug
+block main
+    h1 DANH SACH SAN PHAM 
+    table.table.table-sm 
+        thead 
+            tr 
+                th STT 
+                th Hinh anh 
+                th Ten san pham
+                th Gia
+                th Trang thai
+                th Hanh dong
+
+        tbody 
+            tr 
+                td 1
+                td 
+                    img(src="", alt="") 
+                td title 
+                td gia
+                td 
+                    a(href="#" class=" badge-danger") dung hoat dong
+                td 
+                    button(class="btn btn-warning btn-sm") sua
+                    button(class="btn btn-danger btn-sm ml-1") sua
+
+            tr 
+                td 2
+                td 
+                    img(src="", alt="") 
+                td title 
+                td gia
+                td 
+                    a(href="#" class="badge-success") hoat dong
+                td 
+                    button(class="btn btn-warning btn-sm") sua
+                    button(class="btn btn-danger btn-sm ml-1") sua
+        
