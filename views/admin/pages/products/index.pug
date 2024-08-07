@@ -1,38 +1,43 @@
 extend ../../layouts/default.pug
 block main
-    h1 DANH SACH SAN PHAM 
+    .div(style="display:flex;align-items:center;justify-content:space-between")
+        h1 #{title}
+        form(id="form-search" class="col-6" action="submit") 
+            .input-group
+                input.form-control(type='text' name="keyword" placeholder="Search")
+                button.btn.btn-primary(type='submit') Search
+
+
     table.table.table-sm 
         thead 
             tr 
-                th STT 
-                th Hinh anh 
-                th Ten san pham
-                th Gia
-                th Trang thai
-                th Hanh dong
+                th ID 
+                th image
+                th Name
+                th Price
+                th Action
 
         tbody 
-            tr 
-                td 1
-                td 
-                    img(src="", alt="") 
-                td title 
-                td gia
-                td 
-                    a(href="#" class=" badge-danger") dung hoat dong
-                td 
-                    button(class="btn btn-warning btn-sm") sua
-                    button(class="btn btn-danger btn-sm ml-1") sua
-
-            tr 
-                td 2
-                td 
-                    img(src="", alt="") 
-                td title 
-                td gia
-                td 
-                    a(href="#" class="badge-success") hoat dong
-                td 
-                    button(class="btn btn-warning btn-sm") sua
-                    button(class="btn btn-danger btn-sm ml-1") sua
-        
+            each item,index in list
+                tr 
+                    td #{index+1}
+                    td 
+                        img(src=item.thumbnail,style="width:50px" alt="") 
+                    td #{item.title}
+                    td #{item.price}
+                    td 
+                        button(class="btn btn-success btn-sm" ) Add
+                        button(class="btn btn-warning btn-sm" ) Edit
+                        button(class="btn btn-danger btn-sm ml-1") Delete
+    nav(aria-label='Page navigation example')
+        ul.pagination.justify-content-center
+            li.page-item.disabled
+                a.page-link Previous
+            li.page-item
+                a.page-link(href='#') 1
+            li.page-item
+                a.page-link(href='#') 2
+            li.page-item
+                a.page-link(href='#') 3
+            li.page-item
+                a.page-link(href='#') Next

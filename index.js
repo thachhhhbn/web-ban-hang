@@ -13,7 +13,6 @@ app.locals.prefixAdmin=systemConfig.prefixAdmin;
 
 database.connect();
 
-app.use(express.static("public"));
 app.set("view engine", "pug");
 // app.set("views", path.join(__dirname, "resources/views"));\
 app.set("views", "views");
@@ -25,17 +24,3 @@ app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
 });
 
-// const fs=require("fs")
-// fetch("https://dummyjson.com/products?limit=10&skip=10&select=title,price,thumbnail")
-//   .then((response) => {
-//     return response.json();
-//   })
-//   .then((json) => {
-//     fs.writeFile("./test.json", JSON.stringify(json), (err) => {
-//       if (err) {
-//         throw new Error("Something went wrong.");
-//       }
-//       console.log("JSON written to file. Contents:");
-//       console.log(fs.readFileSync("test.json", "utf-8"));
-//     });
-//   });
