@@ -1,13 +1,10 @@
 extend ../../layouts/default.pug
+include ../../mixins/search.pug
+
 block main
     .div(style="display:flex;align-items:center;justify-content:space-between")
         h1 #{title}
-        form(id="form-search" class="col-6" action="submit") 
-            .input-group
-                input.form-control(type='text' name="keyword" placeholder="Search")
-                button.btn.btn-primary(type='submit') Search
-
-
+        +search()
     table.table.table-sm 
         thead 
             tr 
@@ -30,14 +27,10 @@ block main
                         button(class="btn btn-warning btn-sm" ) Edit
                         button(class="btn btn-danger btn-sm ml-1") Delete
     nav(aria-label='Page navigation example')
-        ul.pagination.justify-content-center
-            li.page-item.disabled
-                a.page-link Previous
-            li.page-item
-                a.page-link(href='#') 1
-            li.page-item
-                a.page-link(href='#') 2
-            li.page-item
-                a.page-link(href='#') 3
-            li.page-item
-                a.page-link(href='#') Next
+        ul.pagination
+            - for (let i=1;i<=btnList;i++)
+                li.page-item
+                    button(
+                        class="page-link"
+                        btn-pagination=i
+                    ) #{i}
