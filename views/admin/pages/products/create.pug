@@ -1,0 +1,22 @@
+extend ../../layouts/default.pug
+
+block main
+    div(class="me-5")
+        h1 #{title}
+        form(action=`${prefixAdmin}/products/create` method="POST" class="py-2 form-horizontal")
+            .form-group(class="py-2 ")
+                label.control-label.col-sm-2(for='title') Title
+                .col-sm-10
+                input#title.form-control(type='text' placeholder='Enter Title' name="title")
+            .form-group(class="py-2 ")
+                label.control-label.col-sm-2(for='pwd') Price
+                .col-sm-10
+                input#price.form-control(type='number' placeholder='0' name="price")
+            .form-group(class="py-2 ")
+                label.control-label.col-sm-2(for='pwd') Thumbnail
+                .col-sm-10
+                input#thumbnail.form-control(type='text' placeholder='Enter url' name="thumbnail")
+            .form-group(class="py-2 ")
+                .col-sm-offset-2.col-sm-10
+                button.btn.btn-success(type='Submit') Submit
+

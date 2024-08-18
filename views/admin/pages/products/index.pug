@@ -5,6 +5,8 @@ block main
     .div(style="display:flex;align-items:center;justify-content:space-between")
         h1 #{title}
         +search()
+        a.btn.btn-success(href=`${prefixAdmin}/products/create`) CREATE NEW
+        div
     table.table.table-sm 
         thead 
             tr 
@@ -22,10 +24,9 @@ block main
                         img(src=item.thumbnail,style="width:50px" alt="") 
                     td #{item.title}
                     td #{item.price}
-                    td 
-                        button(class="btn btn-success btn-sm" ) Add
-                        button(class="btn btn-warning btn-sm" ) Edit
-                        button(class="btn btn-danger btn-sm ml-1") Delete
+                    td
+                        button(class="btn btn-warning btn-sm edit me-2" ) Edit
+                        button(class="btn btn-danger btn-sm ml-1 del") Delete
     nav(aria-label='Page navigation example')
         ul.pagination
             - for (let i=1;i<=btnList;i++)

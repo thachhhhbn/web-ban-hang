@@ -28,3 +28,14 @@ buttonsPagination.forEach((button) => {
 });
 
 // end btnPagination
+
+// btn delete
+const btn = document.querySelectorAll(".btn-danger");
+btn.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const id=e.target.value;
+    console.log(id);
+  });
+});
+// end btn delete

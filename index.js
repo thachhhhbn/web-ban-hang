@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv").config();
+var methodOverride = require('method-override')
 const app = express();
 const router = require("./routers/client/index.router");
 const routerAdmin=require("./routers/admin/index.router")
@@ -12,7 +13,7 @@ const systemConfig=require("./config/system");
 app.locals.prefixAdmin=systemConfig.prefixAdmin;
 
 database.connect();
-
+app.use(methodOverride('X-HTTP-Method-Override'))
 app.set("view engine", "pug");
 // app.set("views", path.join(__dirname, "resources/views"));\
 app.set("views", "views");

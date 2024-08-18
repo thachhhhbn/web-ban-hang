@@ -24,18 +24,65 @@ module.exports.index = async (req, res) => {
   }
 
   const buttonsPagination = Math.ceil(
-   await Product.find().countDocuments() / objectPagination.limitItem
+    (await Product.find().countDocuments()) / objectPagination.limitItem
   );
 
   //end pagination
+
   const product = await Product.find(find)
     .limit(objectPagination.limitItem)
-    .skip(objectPagination.skip);
-
+    .skip(objectPagination.skip)
+    .sort();
   res.render("../views/admin/pages/products/index.pug", {
     title: "LIST PRODUCTS",
     list: product,
     valueInput: find.title,
-    btnList:buttonsPagination
+    btnList: buttonsPagination,
   });
 };
+
+//create
+// [get]
+module.exports.create = async (req, res) => {
+  res.render("../views/admin/pages/products/create.pug", {
+    title: "CREATE PRODUCT",
+  });
+};
+
+// [post]
+module.exports.createPost = async (req, res) => {
+  const product = new Product(req.body);
+  await product.save();
+  res.redirect("/admin/products");
+};
+//end create
+
+// delete
+module.exports.delete = async (req, res) => {};
+// end delete
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
